@@ -3,7 +3,7 @@
 /*  CONSEGNA: Chiedere all’utente di inserire una parola
     Creare una funzione per capire se la parola inserita è palindroma e poi usate quella funzione appena dichiarata */
 
-//PalindromeCheck()
+PalindromeCheck()
 
 function PalindromeCheck() {
 
@@ -146,10 +146,10 @@ if (user_number < 1 || user_number > 5 || isNaN(user_number)) {
     console.error("Numero invalido.")
 }
 
-//Somma del numero scelto dall'utente con il numero generato a caso dal computer, grazie alla funzione scritta in precedenza
+//Somma del numero scelto dall'utente con il numero casuale generato dal computer, grazie alla funzione scritta in precedenza
 
 let sum = user_number + random_number(5);
-console.log("Il numero generato dal computer è: " + (sum - user_number));
+console.log("Il numero generato dal computer è: " + (sum - user_number));    //NB, qui il numero generato dal computer è scritto così per non generare un altro numero casuale
 console.log("Dunque la somma è: " + sum);
 
 //Utilizzando la funzione scritta in precedenza, si scoprirà se la somma è pari (risultato finale 2) o dispari (risultato finale 1)
