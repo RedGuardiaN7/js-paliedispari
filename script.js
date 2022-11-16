@@ -60,15 +60,45 @@ function PalindromeCheck() {
     }
 }
 
- /*----------------FINE SEZIONE DEL PALIDROMO----------------
+/*----------------FINE SEZIONE DEL PALIDROMO----------------
 
 ----------------INIZIO SEZIONE DEL PARI E DISPARI----------------
 
-    CONSEGNA:   L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
-                Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
-                Sommiamo i due numeri
-                Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
-                Dichiariamo chi ha vinto. */
+   CONSEGNA:   L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
+               Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+               Sommiamo i due numeri
+               Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+               Dichiariamo chi ha vinto. */
+
+//Creazione della funzione per generare un numero a caso per il computer
+
+function random_number(n) {
+
+    //Il numero deve essere da 1 (ergo il +1) a n (n verrà cambiato in 5) e intero (parseInt)
+
+    return parseInt((Math.random() * n) + 1);
+
+}
+
+//Creazione della funzione per stabilire se la somma è pari o dispari
+
+function even_or_odd(sum) {
+
+    //Se la somma è divisibile per 2 senza resto, significa che la somma è pari
+
+    if (sum % 2 == 0) {
+
+        //È stato scelto il numero 2 per rappresentare i numeri pari, come nella prediction dell'utente che verrà chiesta sotto
+
+        return 2
+
+        //Altrimenti il numero è dispari, e come return si avrà il numero 1
+
+    } else {
+
+        return 1
+    }
+}
 
 //Richiesta all'utente della predizione della somma, che verrà trasformata in variabile
 
@@ -86,7 +116,7 @@ let clean_prediction = lowercase_prediction.replace(/[^a-zA-Z]/g, "");
 let prediction = "";
 
 if (clean_prediction == "pari") {
-    
+
     //Se l'utente ha predetto che la somma sarà pari, il valore di prediction sarà "2"
 
     prediction = 2;
@@ -97,6 +127,42 @@ if (clean_prediction == "pari") {
 
     prediction = 1;
 
-//Altrimneti, l'utente non ha scritto correttamente la propria scelta  
+    //Altrimenti, l'utente non ha scritto correttamente la propria scelta, viene dato errore
 
-} else {console.error("Scelta scritta incorrettamente.")}
+} else { console.error("Scelta scritta incorrettamente.") }
+
+//Viene chiesto all'utente un numero da 1 a 5
+
+let StringUserNumber = prompt("Digiti un numero da 1 a 5");
+
+//Viene convertito l'input da stringa a numero effettivo
+
+let user_number = parseInt(StringUserNumber);
+
+//Controllo dell'input dell'utente, se non risulta essere all'interno dell'intervallo stabilito, o se non è un numero, viene dato errore
+
+if (user_number < 1 || user_number > 5 || isNaN(user_number)) {
+
+    console.error("Numero invalido.")
+}
+
+//Somma del numero scelto dall'utente con il numero generato a caso dal computer, grazie alla funzione scritta in precedenza
+
+let sum = user_number + random_number(5);
+console.log("Il numero generato dal computer è: " + (sum - user_number));
+console.log("Dunque la somma è: " + sum);
+
+//Utilizzando la funzione scritta in precedenza, si scoprirà se la somma è pari (risultato finale 2) o dispari (risultato finale 1)
+
+let result = even_or_odd(sum);
+
+/* Per dichiarare la vittoria o la sconfitta dell'utente, è necessario cofrontare il "result" con la "prediction"
+Nel caso in cui l'utente ha predetto correttamente, ha vinto */
+
+if (prediction == result) {
+    console.log("Congratulazioni, hai indovinato correttamente!!!")
+
+    //Altrimneti, l'utente ha perso
+} else {
+    console.log("Ci dispiace, non hai indovinato correttamente!")
+}
