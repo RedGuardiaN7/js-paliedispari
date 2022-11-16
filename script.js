@@ -81,3 +81,22 @@ let lowercase_prediction = prediction_text.toLocaleLowerCase();
 
 let clean_prediction = lowercase_prediction.replace(/[^a-zA-Z]/g, "");
 
+//Creazione della variabile prediction, nella quale è conservata la predizione dell'utente
+
+let prediction = "";
+
+if (clean_prediction == "pari") {
+    
+    //Se l'utente ha predetto che la somma sarà pari, il valore di prediction sarà "2"
+
+    prediction = 2;
+
+} else if (clean_prediction == "dispari") {
+
+    //Se l'utente ha predetto che la somma sarà dispari, il valore di prediction sarà "1"
+
+    prediction = 1;
+
+//Altrimneti, l'utente non ha scritto correttamente la propria scelta  
+
+} else {console.error("Scelta scritta incorrettamente.")}
