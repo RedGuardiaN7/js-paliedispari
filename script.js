@@ -1,7 +1,9 @@
+//----------------SEZIONE DEL PALIDROMO----------------
+
 /*  CONSEGNA: Chiedere all’utente di inserire una parola
     Creare una funzione per capire se la parola inserita è palindroma e poi usate quella funzione appena dichiarata */
 
-PalindromeCheck()
+//PalindromeCheck()
 
 function PalindromeCheck() {
 
@@ -9,8 +11,8 @@ function PalindromeCheck() {
 
     let input_word = prompt("Inserisca una parola");
 
-    /* SANIFICAZIONE DELL'INPUT DELL'UTENTE
-    Siccome l'input deve essere una parola, vengono cercati tutti i caratteri che non sono lettere (numeri inclusi) e vengono cambiati in uno spazio nullo, eleminandoli dall'input */
+    /*  SANIFICAZIONE DELL'INPUT DELL'UTENTE
+        Siccome l'input deve essere una parola, vengono cercati tutti i caratteri che non sono lettere (numeri inclusi) e vengono cambiati in uno spazio nullo, eleminandoli dall'input */
 
     let clean_word = input_word.replace(/[^a-zA-Z]/g, "");
 
@@ -57,3 +59,25 @@ function PalindromeCheck() {
         }
     }
 }
+
+ /*----------------FINE SEZIONE DEL PALIDROMO----------------
+
+----------------INIZIO SEZIONE DEL PARI E DISPARI----------------
+
+    CONSEGNA:   L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
+                Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+                Sommiamo i due numeri
+                Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+                Dichiariamo chi ha vinto. */
+
+//Richiesta all'utente della predizione della somma, che verrà trasformata in variabile
+
+let prediction_text = prompt("La somma finale sarà pari o dispari?");
+
+/*  SANIFICAZIONE DELL'INPUT DELL'UTENTE
+    Per verificare l'input dell'utente si trasfromano tutte le lettere in lettere minuscole, omettendo nel frattempo numeri e caratteri speciali come fatto prima */
+
+let lowercase_prediction = prediction_text.toLocaleLowerCase();
+
+let clean_prediction = lowercase_prediction.replace(/[^a-zA-Z]/g, "");
+
